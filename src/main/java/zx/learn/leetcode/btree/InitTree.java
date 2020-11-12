@@ -1,6 +1,10 @@
 package zx.learn.leetcode.btree;
 
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created with IntelliJ IDEA.
  * User: huzhixin
@@ -22,6 +26,17 @@ public class InitTree {
         Integer[] list = {1, 2, 3, null, null, 6, 7};
         TreeNode treeNode = initTree.initTree(list);
         System.out.println(treeNode);
+    }
+
+    TreeNode initTree(String str) {
+        String[] list = str.split("");
+        Integer[] integers = new Integer[list.length];
+        for (int i = 0; i < list.length; i++) {
+            if (!"#".equals(list[i])) {
+                integers[i] = Integer.parseInt(list[i]);
+            }
+        }
+        return initTree(integers);
     }
 
     TreeNode initTree(Integer[] list) {
